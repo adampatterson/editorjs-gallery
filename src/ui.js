@@ -119,7 +119,7 @@ export default class Ui {
   /**
    * Renders tool UI
    *
-   * @param {ImageGalleryData} toolData - saved tool data
+   * @param {MakerMediaData} toolData - saved tool data
    * @returns {Element}
    */
   render(toolData) {
@@ -204,7 +204,7 @@ export default class Ui {
   /**
    * Shows an image
    *
-   * @param {ImageGalleryDataFile} file - image file object
+   * @param {MakerMediaDataFile} file - image file object
    * @returns {void}
    */
   appendImage(file) {

@@ -1,9 +1,9 @@
 /**
- * Image Gallery Tool for the Editor.js
+ * Maker Media Tool for the Editor.js
  *
- * @author Igor Shuvalov «VolgaIgor»
+ * @author Adam Patterson
  * @license MIT
- * @see {@link https://github.com/VolgaIgor/editorjs-gallery}
+ * @see {@link https://github.com/adampatterson/editorjs-media}
  *
  * To developers.
  * To simplify Tool structure, we split it to 4 parts:
@@ -20,7 +20,7 @@
  * It will expose 8008 port, so you can pass http://localhost:8008 with the Tools config:
  *
  * gallery: {
- *   class: ImageGallery,
+ *   class: MakerMedia,
  *   config: {
  *     endpoints: {
  *       byFile: 'http://localhost:8008/uploadFile',
@@ -30,17 +30,17 @@
  */
 
 /**
- * @typedef {object} ImageGalleryDataFile
+ * @typedef {object} MakerMediaDataFile
  * @description Image Gallery Tool's files data format
  * @property {string} url — image URL
  */
 
 /**
- * @typedef {object} ImageGalleryData
+ * @typedef {object} MakerMediaData
  * @description Image Tool's input and output data format
  * @property {boolean} style - slider or fit
  * @property {string} caption — gallery caption
- * @property {ImageGalleryDataFile[]} files — Image file data returned from backend
+ * @property {MakerMediaDataFile[]} files — Image file data returned from backend
  */
 
 // eslint-disable-next-line
@@ -74,7 +74,7 @@ import Uploader from './uploader';
  *                           also can contain any additional data that will be saved and passed back
  * @property {string} file.url - [Required] image source URL
  */
-export default class ImageGallery {
+export default class MakerMedia {
   /**
    * Notify core that read-only mode is supported
    *
@@ -100,7 +100,7 @@ export default class ImageGallery {
 
   /**
    * @param {object} tool - tool properties got from editor.js
-   * @param {ImageGalleryData} tool.data - previously saved data
+   * @param {MakerMediaData} tool.data - previously saved data
    * @param {ImageConfig} tool.config - user config for Tool
    * @param {object} tool.api - Editor.js API
    * @param {boolean} tool.readOnly - read-only mode flag
@@ -197,7 +197,7 @@ export default class ImageGallery {
   /**
    * Validate data: check if Image exists
    *
-   * @param {ImageGalleryData} savedData — data received after saving
+   * @param {MakerMediaData} savedData — data received after saving
    * @returns {boolean} false if saved data is not correct, otherwise true
    * @public
    */
@@ -214,7 +214,7 @@ export default class ImageGallery {
    *
    * @public
    *
-   * @returns {ImageGalleryData}
+   * @returns {MakerMediaData}
    */
   save() {
     const caption = this.ui.nodes.caption;
@@ -240,7 +240,7 @@ export default class ImageGallery {
    *
    * @private
    *
-   * @param {ImageGalleryDataFile} file - uploaded file data
+   * @param {MakerMediaDataFile} file - uploaded file data
    */
   appendImage(file) {
     if (file && file.url) {
@@ -295,7 +295,7 @@ export default class ImageGallery {
    *
    * @private
    *
-   * @param {ImageGalleryData} data - data in Image Tool format
+   * @param {MakerMediaData} data - data in Image Tool format
    */
   set data(data) {
     this._data.files = [];
@@ -317,7 +317,7 @@ export default class ImageGallery {
    *
    * @private
    *
-   * @returns {ImageGalleryData}
+   * @returns {MakerMediaData}
    */
   get data() {
     return this._data;
