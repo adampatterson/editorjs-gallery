@@ -758,11 +758,6 @@
   resolved "https://registry.npmjs.org/@codexteam/ajax/-/ajax-4.2.0.tgz"
   integrity sha512-54r/HZirqBPEV8rM9gZh570RCwG6M/iDAXT9Q9eGuMo9KZU49tw1dEDHjYsResGckfCsaymDqg4GnhfrBtX9JQ==
 
-"@codexteam/icons@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.npmjs.org/@codexteam/icons/-/icons-0.0.6.tgz"
-  integrity sha512-L7Q5PET8PjKcBT5wp7VR+FCjwCi5PUp7rd/XjsgQ0CI5FJz0DphyHGRILMuDUdCW2MQT9NHbVr4QP31vwAkS/A==
-
 "@types/color-name@^1.1.1":
   version "1.1.1"
   resolved "https://registry.npmjs.org/@types/color-name/-/color-name-1.1.1.tgz"
