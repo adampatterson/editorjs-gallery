@@ -1,6 +1,6 @@
-import { make } from './ui';
+import {make} from './ui';
 import sliderIcon from './svg/slider.svg';
-import fitIcon from './svg/fit.svg';
+import galleryIcon from './svg/fit.svg';
 
 /**
  * Working with Block Tunes
@@ -12,7 +12,7 @@ export default class Tunes {
    * @param {object} tune.actions - list of user defined tunes
    * @param {Function} tune.onChange - tune toggling callback
    */
-  constructor({ api, actions, onChange }) {
+  constructor({api, actions, onChange}) {
     this.api = api;
     this.actions = actions;
     this.onChange = onChange;
@@ -32,9 +32,14 @@ export default class Tunes {
         title: 'Slider',
       },
       {
-        name: 'fit',
-        icon: fitIcon,
-        title: 'Fit',
+        name: 'gallery',
+        icon: galleryIcon,
+        title: 'Gallery',
+      },
+      {
+        name: 'testing',
+        icon: galleryIcon,
+        title: 'Testing',
       },
     ];
   }
@@ -47,9 +52,9 @@ export default class Tunes {
   get CSS() {
     return {
       wrapper: 'image-gallery__tune-wrapper',
-      buttonBase: this.api.styles.settingsButton,
+      buttonBase: this.api.styles.button,
       button: 'image-gallery__tune',
-      buttonActive: this.api.styles.settingsButtonActive,
+      buttonActive: 'active',
     };
   }
 
