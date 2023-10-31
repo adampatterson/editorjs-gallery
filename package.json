@@ -1,6 +1,7 @@
 {
   "name": "editorjs-media",
   "version": "1.1.1",
+  "private": "true",
   "keywords": [
     "codex editor",
     "tool",

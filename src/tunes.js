@@ -36,11 +36,11 @@ export default class Tunes {
         icon: galleryIcon,
         title: 'Gallery',
       },
-      {
-        name: 'testing',
-        icon: galleryIcon,
-        title: 'Testing',
-      },
+      // {
+      //   name: 'testing',
+      //   icon: galleryIcon,
+      //   title: 'Testing',
+      // },
     ];
   }
 

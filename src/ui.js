@@ -34,6 +34,7 @@ export default class Ui {
             caption: make('div', [this.CSS.input, this.CSS.caption], {
                 contentEditable: !this.readOnly,
             }),
+            tuneName: make('h3', this.CSS.tuneName)
         };
 
         /**
@@ -45,20 +46,22 @@ export default class Ui {
          *      </items-container>
          *      <controls>
          *        <preloader-container />
-     *        <limit-counter />
+         *        <limit-counter />
          *        <select-file-button />
          *      </controls>
          *    </container>
          *    <caption />
+         *    <tuneName />
          *  </wrapper>
          */
         this.nodes.caption.dataset.placeholder = this.config.captionPlaceholder;
+        this.nodes.tuneName.dataset.placeholder = this.config.captionPlaceholder;
 
         this.nodes.controls.appendChild(this.nodes.preloaderContainer);
-    if (this.config.maxElementCount) {
-      this.nodes.limitCounter = make('div', this.CSS.limitCounter);
-      this.nodes.controls.appendChild(this.nodes.limitCounter);
-    }
+        if (this.config.maxElementCount) {
+            this.nodes.limitCounter = make('div', this.CSS.limitCounter);
+            this.nodes.controls.appendChild(this.nodes.limitCounter);
+        }
         this.nodes.controls.appendChild(this.nodes.fileButton);
 
         this.nodes.container.appendChild(this.nodes.itemsContainer);
@@ -66,6 +69,7 @@ export default class Ui {
 
         this.nodes.wrapper.appendChild(this.nodes.container);
         this.nodes.wrapper.appendChild(this.nodes.caption);
+        this.nodes.wrapper.appendChild(this.nodes.tuneName);
 
         ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
             this.nodes.itemsContainer.addEventListener(eventName, function (e) {
@@ -100,6 +104,7 @@ export default class Ui {
             imageEl: 'image-gallery__image-picture',
             trashButton: 'image-gallery__image-trash',
             caption: 'image-gallery__caption',
+            tuneName: 'image-gallery__tune-name'
         };
     };
 
@@ -328,22 +333,22 @@ export default class Ui {
         for (const statusType in Ui.status) {
             if (Object.prototype.hasOwnProperty.call(Ui.status, statusType)) {
                 elem.classList.toggle(`${this.CSS.imageContainer}--${Ui.status[statusType]}`, status === Ui.status[statusType]);
-      }
+            }
+        }
     }
-  }
 
-  /**
-   * @param {int} imageCount
-   * @param {int|null} limitCounter
-   * @returns {void}
-   */
-  updateLimitCounter(imageCount, limitCounter) {
-    if (limitCounter && this.nodes.limitCounter) {
-      if (imageCount === 0) {
-        this.nodes.limitCounter.style.display = 'none';
-      } else {
-        this.nodes.limitCounter.style.display = null;
-        this.nodes.limitCounter.innerText = `${imageCount} / ${limitCounter}`;
+    /**
+     * @param {int} imageCount
+     * @param {int|null} limitCounter
+     * @returns {void}
+     */
+    updateLimitCounter(imageCount, limitCounter) {
+        if (limitCounter && this.nodes.limitCounter) {
+            if (imageCount === 0) {
+                this.nodes.limitCounter.style.display = 'none';
+            } else {
+                this.nodes.limitCounter.style.display = null;
+                this.nodes.limitCounter.innerText = `${imageCount} / ${limitCounter}`;
             }
         }
     }
