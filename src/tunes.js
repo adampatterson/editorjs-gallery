@@ -1,6 +1,6 @@
 import {make} from './ui';
 import sliderIcon from './svg/slider.svg';
-import galleryIcon from './svg/fit.svg';
+import galleryIcon from './svg/gallery.svg';
 
 /**
  * Working with Block Tunes

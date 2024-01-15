@@ -34,12 +34,13 @@ export default class Ui {
             caption: make('div', [this.CSS.input, this.CSS.caption], {
                 contentEditable: !this.readOnly,
             }),
-            tuneName: make('h3', this.CSS.tuneName)
+            tuneTitle: this.createTuneTitle()
         };
 
         /**
          * Create base structure
          *  <wrapper>
+         *    <tuneTitle />
          *    <container>
          *      <items-container>
          *        <image-container />
@@ -51,11 +52,10 @@ export default class Ui {
          *      </controls>
          *    </container>
          *    <caption />
-         *    <tuneName />
          *  </wrapper>
          */
         this.nodes.caption.dataset.placeholder = this.config.captionPlaceholder;
-        this.nodes.tuneName.dataset.placeholder = this.config.captionPlaceholder;
+        this.nodes.tuneTitle.dataset.placeholder = 'Tune Title';
 
         this.nodes.controls.appendChild(this.nodes.preloaderContainer);
         if (this.config.maxElementCount) {
@@ -67,9 +67,9 @@ export default class Ui {
         this.nodes.container.appendChild(this.nodes.itemsContainer);
         this.nodes.container.appendChild(this.nodes.controls);
 
+        this.nodes.wrapper.appendChild(this.nodes.tuneTitle);
         this.nodes.wrapper.appendChild(this.nodes.container);
         this.nodes.wrapper.appendChild(this.nodes.caption);
-        this.nodes.wrapper.appendChild(this.nodes.tuneName);
 
         ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
             this.nodes.itemsContainer.addEventListener(eventName, function (e) {
@@ -151,6 +151,15 @@ export default class Ui {
                 }
             });
         }
+    }
+
+    createTuneTitle() {
+        const title = make('h4', [this.CSS.tuneName]);
+
+        // title.innerHTML = this.config.titleContent || `${titleIcon} ${this.api.i18n.t('Tune Title')}`;
+        // @todo figure out what tune value has been selected.
+        title.innerHTML = 'Gallery or Slider';
+        return title;
     }
 
     /**

@@ -38,7 +38,7 @@
 /**
  * @typedef {object} MakerMediaData
  * @description Image Tool's input and output data format
- * @property {boolean} style - slider or fit
+ * @property {boolean} style - slider or gallery
  * @property {string} caption — gallery caption
  * @property {MakerMediaDataFile[]} files — Image file data returned from backend
  */
@@ -58,7 +58,6 @@ import Uploader from './uploader';
  * @property {string} field - field name for uploaded image
  * @property {string} types - available mime-types
  * @property {string} captionPlaceholder - placeholder for Caption field
- * @property {string} tuneNamePlaceholder - placeholder for Tune Name heading
  * @property {object} additionalRequestData - any data to send with requests
  * @property {object} additionalRequestHeaders - allows to pass custom headers with Request
  * @property {string} buttonContent - overrides for Select File button
@@ -95,7 +94,7 @@ export default class MakerMedia {
     static get toolbox() {
         return {
             icon: ToolboxIcon,
-            title: 'Gallery',
+            title: 'Media',
         };
     }
 
@@ -120,7 +119,6 @@ export default class MakerMedia {
             field: config.field || 'image',
             types: config.types || 'image/*',
             captionPlaceholder: this.api.i18n.t(config.captionPlaceholder || 'Gallery caption'),
-            tuneNamePlaceholder: this.api.i18n.t(config.tuneNamePlaceholder || 'Gallery'),
             buttonContent: config.buttonContent || '',
             uploader: config.uploader || undefined,
             actions: config.actions || [],
@@ -309,11 +307,11 @@ export default class MakerMedia {
             });
         }
 
-        this._data.caption = data.caption || '';
-        this.ui.fillCaption(this._data.caption);
-
         let style = data.style || '';
         this.styleToggled(style);
+
+        this._data.caption = data.caption || '';
+        this.ui.fillCaption(this._data.caption);
     }
 
     /**
@@ -371,8 +369,8 @@ export default class MakerMedia {
      * @returns {void}
      */
     styleToggled(tuneName) {
-        if (tuneName === 'fit') {
-            this._data.style = 'fit';
+        if (tuneName === 'gallery') {
+            this._data.style = 'gallery';
         } else {
             this._data.style = 'slider';
         }
