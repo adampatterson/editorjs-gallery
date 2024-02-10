@@ -1,5 +1,5 @@
 {
-  "name": "editorjs-media",
+  "name": "@adampatterson/editorjs-media",
   "version": "1.1.1",
   "private": "true",
   "keywords": [
@@ -10,13 +10,22 @@
     "editor.js",
     "editorjs"
   ],
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/image.mjs",
+      "require": "./dist/image.umd.js"
+    }
+  },
   "description": "Image Gallery Tool with source field for Editor.js",
   "license": "MIT",
   "repository": "https://github.com/adampatterson/editorjs-media",
   "main": "./dist/bundle.js",
   "scripts": {
-    "build": "webpack --mode production",
-    "build:dev": "webpack --mode development --watch",
+    "dev": "vite",
+    "build": "vite build",
     "lint": "eslint src/ --ext .js",
     "lint:errors": "eslint src/ --ext .js --quiet",
     "lint:fix": "eslint src/ --ext .js --fix"
@@ -25,10 +34,6 @@
     "name": "Adam Patterson"
   },
   "devDependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/plugin-transform-runtime": "^7.2.0",
-    "@babel/preset-env": "^7.3.4",
-    "@babel/runtime": "^7.2.0",
     "@codexteam/ajax": "^4.2.0",
     "babel-loader": "^8.0.5",
     "css-loader": "^3.5.2",
@@ -40,10 +45,9 @@
     "postcss-nested": "^4.1.0",
     "postcss-nested-ancestors": "^2.0.0",
     "request": "^2.88.0",
-    "style-loader": "^1.1.4",
-    "svg-inline-loader": "^0.8.0",
-    "webpack": "^4.29.5",
-    "webpack-cli": "^3.2.3"
+    "vite": "^4.5.0",
+    "vite-plugin-css-injected-by-js": "^3.3.0",
+    "svg-inline-loader": "^0.8.0"
   },
   "dependencies": {
     "sortablejs": "^1.15.0"

@@ -44,7 +44,7 @@
  */
 
 // eslint-disable-next-line
-import css from './index.pcss';
+import './index.pcss';
 import Ui from './ui';
 import Tunes from './tunes';
 import ToolboxIcon from './svg/toolbox.svg';
