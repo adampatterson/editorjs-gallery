@@ -15,8 +15,8 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/image.mjs",
-      "require": "./dist/image.umd.js"
+      "import": "./dist/bundle.mjs",
+      "require": "./dist/bundle.umd.js"
     }
   },
   "description": "Image Gallery Tool with source field for Editor.js",
