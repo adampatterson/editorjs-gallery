@@ -68,7 +68,7 @@ export default class Ui {
         this.nodes.container.appendChild(this.nodes.itemsContainer);
         this.nodes.container.appendChild(this.nodes.controls);
 
-        // this.nodes.wrapper.appendChild(this.nodes.tuneTitle);
+        this.nodes.wrapper.appendChild(this.nodes.tuneTitle);
         this.nodes.wrapper.appendChild(this.nodes.container);
         this.nodes.wrapper.appendChild(this.nodes.caption);
 
