@@ -1,8 +1,9 @@
 import Sortable from 'sortablejs';
 
-import buttonIcon from './svg/button-icon.svg';
-import trashIcon from './svg/trash.svg';
-
+// import buttonIcon from './svg/button-icon.svg';
+const buttonIcon = '<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M3.15 13.628A7.749 7.749 0 0 0 10 17.75a7.74 7.74 0 0 0 6.305-3.242l-2.387-2.127-2.765 2.244-4.389-4.496-3.614 3.5zm-.787-2.303l4.446-4.371 4.52 4.63 2.534-2.057 3.533 2.797c.23-.734.354-1.514.354-2.324a7.75 7.75 0 1 0-15.387 1.325zM10 20C4.477 20 0 15.523 0 10S4.477 0 10 0s10 4.477 10 10-4.477 10-10 10z"/></svg>'
+// import trashIcon from './svg/trash.svg';
+const trashIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/> </svg>'
 /**
  * Class for working with UI:
  *  - rendering base structure
@@ -67,7 +68,7 @@ export default class Ui {
         this.nodes.container.appendChild(this.nodes.itemsContainer);
         this.nodes.container.appendChild(this.nodes.controls);
 
-        this.nodes.wrapper.appendChild(this.nodes.tuneTitle);
+        // this.nodes.wrapper.appendChild(this.nodes.tuneTitle);
         this.nodes.wrapper.appendChild(this.nodes.container);
         this.nodes.wrapper.appendChild(this.nodes.caption);
 

@@ -2240,7 +2240,7 @@ class yn {
       additionalRequestHeaders: e.additionalRequestHeaders || {},
       field: e.field || "image",
       types: e.types || "image/*",
-      captionPlaceholder: this.api.i18n.t(e.captionPlaceholder || "Gallery caption"),
+      captionPlaceholder: this.api.i18n.t(e.captionPlaceholder || "Gallery captionnn"),
       buttonContent: e.buttonContent || "",
       uploader: e.uploader || void 0,
       actions: e.actions || [],

@@ -13,7 +13,7 @@ export default {
       name: "MakerMedia",
       fileName: "bundle",
     },
-    // outDir: path.resolve(__dirname, "../../maker-community/node_modules/@adampatterson/editorjs-media/dist/"),
+    outDir: path.resolve(__dirname, "../../maker-community/node_modules/@adampatterson/editorjs-media/dist/"),
   },
   define: {
     NODE_ENV: JSON.stringify(NODE_ENV),
