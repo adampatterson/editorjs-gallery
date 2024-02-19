@@ -219,10 +219,10 @@ export default class MakerMedia {
      */
     save() {
         const caption = this.ui.nodes.caption;
-        const tuneName = this.ui.nodes.tuneName;
+        // const tuneName = this.ui.nodes.tuneName;
 
         this._data.caption = caption.innerHTML;
-        this._data.tuneName = tuneName.innerHTML;
+        // this._data.tuneName = tuneName.innerHTML;
 
         return this.data;
     }
