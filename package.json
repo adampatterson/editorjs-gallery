@@ -1,5 +1,5 @@
 {
-  "name": "@adampatterson/editorjs-media",
+  "name": "@adampatterson/editorjs-gallery",
   "version": "1.1.2",
   "private": "true",
   "keywords": [
@@ -23,7 +23,7 @@
   },
   "description": "Image Gallery Tool with source field for Editor.js",
   "license": "MIT",
-  "repository": "https://github.com/adampatterson/editorjs-media",
+  "repository": "https://github.com/adampatterson/editorjs-gallery",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
