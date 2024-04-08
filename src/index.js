@@ -20,7 +20,7 @@
  * It will expose 8008 port, so you can pass http://localhost:8008 with the Tools config:
  *
  * gallery: {
- *   class: MakerMedia,
+ *   class: MakerGallery,
  *   config: {
  *     endpoints: {
  *       byFile: 'http://localhost:8008/uploadFile',
@@ -30,17 +30,17 @@
  */
 
 /**
- * @typedef {object} MakerMediaDataFile
+ * @typedef {object} MakerGalleryDataFile
  * @description Image Gallery Tool's files data format
  * @property {string} url — image URL
  */
 
 /**
- * @typedef {object} MakerMediaData
+ * @typedef {object} MakerGalleryData
  * @description Image Tool's input and output data format
  * @property {boolean} style - slider or gallery
  * @property {string} caption — gallery caption
- * @property {MakerMediaDataFile[]} files — Image file data returned from backend
+ * @property {MakerGalleryDataFile[]} files — Image file data returned from backend
  */
 
 // eslint-disable-next-line
@@ -59,6 +59,7 @@ import Uploader from './uploader';
  * @property {string} field - field name for uploaded image
  * @property {string} types - available mime-types
  * @property {string} captionPlaceholder - placeholder for Caption field
+ * @property {string} blockTitle - placeholder for Block Title
  * @property {object} additionalRequestData - any data to send with requests
  * @property {object} additionalRequestHeaders - allows to pass custom headers with Request
  * @property {string} buttonContent - overrides for Select File button
@@ -75,7 +76,7 @@ import Uploader from './uploader';
  *                           also can contain any additional data that will be saved and passed back
  * @property {string} file.url - [Required] image source URL
  */
-export default class MakerMedia {
+export default class MakerGallery {
     /**
      * Notify core that read-only mode is supported
      *
@@ -101,7 +102,7 @@ export default class MakerMedia {
 
     /**
      * @param {object} tool - tool properties got from editor.js
-     * @param {MakerMediaData} tool.data - previously saved data
+     * @param {MakerGalleryData} tool.data - previously saved data
      * @param {ImageConfig} tool.config - user config for Tool
      * @param {object} tool.api - Editor.js API
      * @param {boolean} tool.readOnly - read-only mode flag
@@ -120,6 +121,7 @@ export default class MakerMedia {
             field: config.field || 'image',
             types: config.types || 'image/*',
             captionPlaceholder: this.api.i18n.t(config.captionPlaceholder || 'Gallery caption'),
+            blockTitle: this.api.i18n.t(config.blockTitle),
             buttonContent: config.buttonContent || '',
             uploader: config.uploader || undefined,
             actions: config.actions || [],
@@ -198,7 +200,7 @@ export default class MakerMedia {
     /**
      * Validate data: check if Image exists
      *
-     * @param {MakerMediaData} savedData — data received after saving
+     * @param {MakerGalleryData} savedData — data received after saving
      * @returns {boolean} false if saved data is not correct, otherwise true
      * @public
      */
@@ -215,7 +217,7 @@ export default class MakerMedia {
      *
      * @public
      *
-     * @returns {MakerMediaData}
+     * @returns {MakerGalleryData}
      */
     save() {
         const caption = this.ui.nodes.caption;
@@ -243,7 +245,7 @@ export default class MakerMedia {
      *
      * @private
      *
-     * @param {MakerMediaDataFile} file - uploaded file data
+     * @param {MakerGalleryDataFile} file - uploaded file data
      */
     appendImage(file) {
         if (file && file.url) {
@@ -298,7 +300,7 @@ export default class MakerMedia {
      *
      * @private
      *
-     * @param {MakerMediaData} data - data in Image Tool format
+     * @param {MakerGalleryData} data - data in Image Tool format
      */
     set data(data) {
         this._data.files = [];
@@ -320,7 +322,7 @@ export default class MakerMedia {
      *
      * @private
      *
-     * @returns {MakerMediaData}
+     * @returns {MakerGalleryData}
      */
     get data() {
         return this._data;

@@ -10,10 +10,11 @@ export default {
     copyPublicDir: false,
     lib: {
       entry: path.resolve(__dirname, "src", "index.js"),
-      name: "MakerMedia",
+      name: "MakerGallery",
       fileName: "bundle",
     },
-    outDir: path.resolve(__dirname, "../../maker-community/node_modules/@adampatterson/editorjs-media/dist/"),
+    outDirOriginal: path.resolve(__dirname, "dist/"),
+    outDir: path.resolve(__dirname, "../../maker-community/node_modules/@adampatterson/editorjs-gallery/dist/"),
   },
   define: {
     NODE_ENV: JSON.stringify(NODE_ENV),

@@ -35,13 +35,15 @@ export default class Ui {
             caption: make('div', [this.CSS.input, this.CSS.caption], {
                 contentEditable: !this.readOnly,
             }),
-            tuneTitle: this.createTuneTitle()
+            blockTitle: this.createTitle(),
+            // galleryTitle: this.createGalleryTitle(),
+            // sliderTitle: this.createSliderTitle()
         };
 
         /**
          * Create base structure
          *  <wrapper>
-         *    <tuneTitle />
+         *    <blockTitle />
          *    <container>
          *      <items-container>
          *        <image-container />
@@ -56,7 +58,6 @@ export default class Ui {
          *  </wrapper>
          */
         this.nodes.caption.dataset.placeholder = this.config.captionPlaceholder;
-        this.nodes.tuneTitle.dataset.placeholder = 'Tune Title';
 
         this.nodes.controls.appendChild(this.nodes.preloaderContainer);
         if (this.config.maxElementCount) {
@@ -68,7 +69,7 @@ export default class Ui {
         this.nodes.container.appendChild(this.nodes.itemsContainer);
         this.nodes.container.appendChild(this.nodes.controls);
 
-        this.nodes.wrapper.appendChild(this.nodes.tuneTitle);
+        this.nodes.wrapper.appendChild(this.nodes.blockTitle);
         this.nodes.wrapper.appendChild(this.nodes.container);
         this.nodes.wrapper.appendChild(this.nodes.caption);
 
@@ -105,7 +106,9 @@ export default class Ui {
             imageEl: 'image-gallery__image-picture',
             trashButton: 'image-gallery__image-trash',
             caption: 'image-gallery__caption',
-            tuneName: 'image-gallery__tune-name'
+            blockTitle: 'image-gallery__title',
+            tuneGalleryName: 'image-gallery__tune-name',
+            tuneSliderName: 'image-slider__tune-name'
         };
     };
 
@@ -128,7 +131,7 @@ export default class Ui {
     /**
      * Renders tool UI
      *
-     * @param {MakerMediaData} toolData - saved tool data
+     * @param {MakerGalleryData} toolData - saved tool data
      * @returns {Element}
      */
     render(toolData) {
@@ -154,14 +157,14 @@ export default class Ui {
         }
     }
 
-    createTuneTitle() {
-        const title = make('h4', [this.CSS.tuneName]);
+    createTitle() {
+        const title = make('h4', [this.CSS.blockTitle]);
 
-        // title.innerHTML = this.config.titleContent || `${titleIcon} ${this.api.i18n.t('Tune Title')}`;
-        // @todo figure out what tune value has been selected.
-        title.innerHTML = 'Gallery or Slider';
+        title.innerHTML = this.config.blockTitle;
+
         return title;
     }
+
 
     /**
      * Creates upload-file button
@@ -222,7 +225,7 @@ export default class Ui {
     /**
      * Shows an image
      *
-     * @param {MakerMediaDataFile} file - image file object
+     * @param {MakerGalleryDataFile} file - image file object
      * @returns {void}
      */
     appendImage(file) {

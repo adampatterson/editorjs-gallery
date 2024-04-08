@@ -30,11 +30,11 @@ export default class Tunes {
      */
     static get tunes() {
         return [
-            // {
-            //   name: 'slider',
-            //   icon: sliderIcon,
-            //   title: 'Slider',
-            // },
+            {
+                name: 'slider',
+                icon: sliderIcon,
+                title: 'Slider',
+            },
             {
                 name: 'gallery',
                 icon: galleryIcon,
@@ -60,7 +60,7 @@ export default class Tunes {
     /**
      * Makes buttons with tunes: add background, add border, stretch image
      *
-     * @param {MakerMediaData} toolData - generate Elements of tunes
+     * @param {MakerGalleryData} toolData - generate Elements of tunes
      * @returns {Element}
      */
     render(toolData) {
@@ -90,7 +90,7 @@ export default class Tunes {
                 placement: 'top',
             });
 
-            wrapper.appendChild(el);
+            // wrapper.appendChild(el); // Disable the tunes
         });
 
         return wrapper;
@@ -114,5 +114,18 @@ export default class Tunes {
         });
 
         this.onChange(tuneName);
+    }
+
+    handelTitle(tuneName) {
+        const galleryTuneName = document.querySelector('.image-gallery__tune-name');
+        const sliderTuneName = document.querySelector('.image-slider__tune-name');
+
+        if (tuneName === 'gallery') {
+            galleryTuneName.style.display = 'block';
+            sliderTuneName.style.display = 'none';
+        } else {
+            galleryTuneName.style.display = 'none';
+            sliderTuneName.style.display = 'block';
+        }
     }
 }

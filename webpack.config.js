@@ -42,7 +42,7 @@ module.exports = {
         path: path.join(__dirname, '../../maker-community/node_modules/@adampatterson/editorjs-media/test/'),
         publicPath: '/',
         filename: 'bundle.js',
-        library: 'MakerMedia',
+        library: 'MakerGallery',
         libraryTarget: 'umd',
         libraryExport: 'default'
     }
